@@ -23,3 +23,5 @@ function generateCat(){
     div.appendChild(image);
 
 }
+
+// Challenge 3: Rock, paper, scissors
