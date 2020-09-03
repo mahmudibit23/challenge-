@@ -25,3 +25,21 @@ function generateCat(){
 }
 
 // Challenge 3: Rock, paper, scissors
+function rpsGame(youChoice){
+    console.log(youChoice);
+    var humanChoice, botChoice;
+    // humanChoice = youChoice.id;
+    botChoice = numberToChoice(ranToRpsInt());
+    // console.log(botChoice);
+    // result = decideWiner(humanChoice, botChoice); //(0, 1) human lost | bot won
+    // massage = finalMassage(result); // {massage : 'You won!' , 'color: green'}
+    //rpsFrontEnd(youChoice.id,botChoice,massage);
+}
+
+function ranToRpsInt(){
+    return Math.floor(Math.random() *3);
+}
+
+function numberToChoice(number){
+    return['rock', 'paper','scissors'][number]
+}
