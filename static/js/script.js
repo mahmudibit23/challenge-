@@ -25,35 +25,50 @@ function generateCat(){
 }
 
 // Challenge 3: Rock, paper, scissors
-function rpsGame(youChoice){
-    console.log(youChoice);
+function rpsGame(yourChoice){
+    console.log(yourChoice);
     var humanChoice, botChoice;
-    humanChoice = youChoice.id;
-    botChoice = numberToChoice(ranToRpsInt());
+    humanChoice = yourChoice.id;
+    botChoice = numberToChoice(randToRpsInt());
     console.log('Computer choice:', botChoice);
-    result = decideWiner(humanChoice, botChoice); //(0, 1) human lost | bot won
-    console.log(result);
-    // massage = finalMassage(result); // {massage : 'You won!' , 'color: green'}
+
+    results = decideWinner(humanChoice, botChoice); //(0, 1) human lost | bot won
+    console.log(results);
+
+    massage = finalMassage(results); // {massage : 'You won!' , 'color: green'}
+    console.log(massage);
     //rpsFrontEnd(youChoice.id,botChoice,massage);
 }
 
-function ranToRpsInt(){
+function randToRpsInt(){
     return Math.floor(Math.random() *3);
 }
 
 function numberToChoice(number){
-    return['rock', 'paper','scissors'][number];
+    return['rock', 'paper','Scissors'][number];
 }
 
-function decideWiner(yourChoice, computerChoice){
+function decideWinner(yourChoice, computerChoice){
     var rpsDatabase = {
-        'rock': {'scissors': 1, 'rock': 0.5, 'paper': 0},
-        'paper': {'rock': 1, 'paper': 0.5, 'scissors': 0},
-        'scissors': {'paper': 1, 'scissors': 0.5, 'rock': 0}
+        'rock': {'Scissors': 1, 'rock': 0.5, 'paper': 0},
+        'paper': {'rock': 1, 'paper': 0.5, 'Scissors': 0},
+        'Scissors': {'paper': 1, 'Scissors': 0.5, 'rock': 0}
     };
 
     var yourScore = rpsDatabase[yourChoice][computerChoice];
     var computerScore = rpsDatabase[computerChoice][yourChoice];
 
     return [yourScore, computerScore];
+}
+
+function finalMassage([yourScore, computerScore]){
+    if(yourScore === 0){
+        return {'Massage': 'You Lost!', 'color': 'Red'};
+    }
+    else if(yourScore === 0.5){
+        return {'Massage': 'You tied', 'color': 'Yellow'};
+    }
+    else{
+        return {'Massage': 'You won!', 'color': 'Green'};
+    }
 }
