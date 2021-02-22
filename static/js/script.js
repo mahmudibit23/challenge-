@@ -98,3 +98,21 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage){
     document.getElementById('flex-box-rps-div').appendChild(botDiv);
     document.getElementById('flex-box-rps-div').appendChild(messageDiv);
 }
+
+
+//Blackjack part
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
